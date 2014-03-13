@@ -4,24 +4,18 @@
     "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
 
 <module name="Checker">
-  <!-- Checks that a package.html file exists for each package. -->
-  <!-- <module name="PackageHtml"/> -->
   <!-- Checks whether files end with a new line. -->
   <module name="NewlineAtEndOfFile" />
   <!-- Checks that property files contain the same keys. -->
   <module name="Translation" />
   <module name="TreeWalker">
-    <!-- Javadoc for class/interface must be present/valid. -->
-    <!-- Require author to be present. -->
-    <module name="JavadocType">
-      <property name="authorFormat" value="\S" />
-    </module>
+    <!-- <module name="JavadocType" /> -->
     <!-- Javadoc for methods must be present/valid. -->
     <module name="JavadocMethod">
       <property name="allowUndeclaredRTE" value="true" />
     </module>
     <!-- Javadoc for class variables must be present/valid. -->
-    <module name="JavadocVariable" />
+    <!-- <module name="JavadocVariable" /> -->
     <!-- Javadoc must be well-formed. -->
     <module name="JavadocStyle" />
     <!-- Naming conventions for packages. -->
@@ -108,13 +102,6 @@
     <module name="RedundantModifier" />
     <!-- Avoid empty blocks -->
     <module name="EmptyBlock" />
-    <!-- Classes, interfaces and methods have left brace on a new line -->
-    <module name="LeftCurly">
-      <property name="option" value="nl" />
-      <property name="maxLineLength" value="80" />
-      <property name="tokens"
-        value="CLASS_DEF, CTOR_DEF, INTERFACE_DEF, METHOD_DEF" />
-    </module>
     <!-- The others have left brace at eol -->
     <module name="LeftCurly">
       <property name="option" value="eol" />
