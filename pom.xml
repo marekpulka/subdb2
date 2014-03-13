@@ -48,7 +48,6 @@
   </dependencies>
 
   <build>
-    <!-- <pluginManagement> -->
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -114,7 +113,6 @@
         <artifactId>doxia-module-markdown</artifactId> <version>${maven.doxia.module.markdown.version}</version> 
         </dependency> </dependencies> </plugin> -->
     </plugins>
-    <!-- </pluginManagement> -->
   </build>
 
   <reporting>
