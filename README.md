@@ -10,6 +10,7 @@ https://buildhive.cloudbees.com/job/marekpulka/job/subdb2/
 TODO
 ----
 - TDD
+- site main page
 - other site plugins
 - investigate dbunit/sqlunit for embedded external database preparation
 - investigate dbunit output feature
