@@ -11,9 +11,11 @@
   <module name="TreeWalker">
     <!-- <module name="JavadocType" /> -->
     <!-- Javadoc for methods must be present/valid. -->
+    <!-- 
     <module name="JavadocMethod">
       <property name="allowUndeclaredRTE" value="true" />
     </module>
+    -->
     <!-- Javadoc for class variables must be present/valid. -->
     <!-- <module name="JavadocVariable" /> -->
     <!-- Javadoc must be well-formed. -->
