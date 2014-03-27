@@ -1,11 +1,12 @@
 subdb2
 ======
 
+
 site:
 https://buildhive.cloudbees.com/job/marekpulka/job/subdb2/site/
 
 ci:
-https://buildhive.cloudbees.com/job/marekpulka/job/subdb2/
+https://buildhive.cloudbees.com/job/marekpulka/job/subdb2/ [![Build Status](https://buildhive.cloudbees.com/job/marekpulka/job/subdb2/badge/icon)](https://buildhive.cloudbees.com/job/marekpulka/job/subdb2/)
 
 
 
