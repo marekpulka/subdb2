@@ -8,7 +8,7 @@ https://buildhive.cloudbees.com/job/marekpulka/job/subdb2/site/
 ci:
 https://buildhive.cloudbees.com/job/marekpulka/job/subdb2/ [![Build Status](https://buildhive.cloudbees.com/job/marekpulka/job/subdb2/badge/icon)](https://buildhive.cloudbees.com/job/marekpulka/job/subdb2/)
 
-
+https://travis-ci.org/marekpulka/subdb2 [![Build Status](https://travis-ci.org/marekpulka/subdb2.svg?branch=master)](https://travis-ci.org/marekpulka/subdb2)
 
 TODO
 ----
