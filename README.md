@@ -1,7 +1,13 @@
 subdb2
 ======
+site:
+https://marekpulka.ci.cloudbees.com/job/subdb2/site/
 
+ci:
+https://marekpulka.ci.cloudbees.com/job/subdb2/
 
+old
+---
 site:
 https://buildhive.cloudbees.com/job/marekpulka/job/subdb2/site/
 
