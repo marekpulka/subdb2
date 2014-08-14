@@ -9,8 +9,8 @@
   <properties>
     <encoding>UTF-8</encoding>
 
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <source.version>1.7</source.version>
+    <class.version>1.7</class.version>
     <jdk.version>1.7</jdk.version>
 
     <junit.version>4.11</junit.version>
@@ -20,23 +20,19 @@
     <maven.checkstyle.plugin.version>2.11</maven.checkstyle.plugin.version>
     <maven.jxr.plugin.version>2.4</maven.jxr.plugin.version>
     <maven.cobertura.plugin.version>2.6</maven.cobertura.plugin.version>
-
-
-    <!-- 2.7 doesn't work mvn site gives error Failed during checkstyle configuration: 
-      missing key 'cacheFile' in TreeWalker -->
     <maven.checkstyle.plugin.version>2.12.1</maven.checkstyle.plugin.version>
     <maven.checkstyle.plugin.configLocation>checkstyle.xml</maven.checkstyle.plugin.configLocation>
-
     <maven.doxia.module.markdown.version>1.3</maven.doxia.module.markdown.version>
+    <maven.findbugs.plugin.version>3.0.0</maven.findbugs.plugin.version>
     <maven.javadoc.plugin.version>2.9.1</maven.javadoc.plugin.version>
     <maven.jxr.plugin.version>2.4</maven.jxr.plugin.version>
-    <maven.pmd.plugin.version>2.7.1</maven.pmd.plugin.version>
+    <maven.pmd.plugin.version>3.2</maven.pmd.plugin.version>
     <maven.project.info.reports.plugin.version>2.6</maven.project.info.reports.plugin.version>
     <maven.site.plugin.version>3.2</maven.site.plugin.version>
     <maven.sonar.plugin.version>3.3.1</maven.sonar.plugin.version>
-    <maven.surefire.plugin.version>2.12.4</maven.surefire.plugin.version>
+    <maven.surefire.plugin.version>2.17</maven.surefire.plugin.version>
     <maven.taglist.plugin.version>2.4</maven.taglist.plugin.version>
-    <maven.versions.plugin.version>1.3.1</maven.versions.plugin.version>
+    <maven.versions.plugin.version>2.1</maven.versions.plugin.version>
     <maven.project.info.reports.plugin.version>2.7</maven.project.info.reports.plugin.version>
   </properties>
 
@@ -58,8 +54,8 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${maven.compiler.plugin.version}</version>
           <configuration>
-            <source>${maven.compiler.source}</source>
-            <target>${maven.compiler.target}</target>
+            <source>${source.version}</source>
+            <target>${class.version}</target>
             <debug>true</debug>
           </configuration>
         </plugin>
@@ -90,6 +86,12 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${maven.surefire.plugin.version}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>${maven.project.info.reports.plugin.version}</version>
         </plugin>
 
         <plugin>
@@ -144,6 +146,44 @@
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>${maven.pmd.plugin}</version>
+        <configuration>
+          <aggregate>true</aggregate>
+          <sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
+          <minimumTokens>100</minimumTokens>
+          <linkXRef>true</linkXRef>
+          <verbose>true</verbose>
+          <targetJdk>${class.version}</targetJdk>
+          <rulesets>
+            <ruleset>pmd.xml</ruleset>
+          </rulesets>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <version>${maven.findbugs.plugin.version}</version>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <version>${maven.versions.plugin.version}</version>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>taglist-maven-plugin</artifactId>
+        <version>${maven.taglist.plugin}</version>
+        <configuration>
+          <aggregate>true</aggregate>
+        </configuration>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>${maven.javadoc.plugin.version}</version>
         <configuration>
@@ -169,8 +209,8 @@
             <artifactId>maven-compiler-plugin</artifactId>
             <version>2.5.1</version>
             <configuration>
-              <source>${maven.compiler.source}</source>
-              <target>${maven.compiler.target}</target>
+              <source>${source.version}</source>
+              <target>${class.version}</target>
               <showDeprecation>true</showDeprecation>
               <showWarnings>true</showWarnings>
               <encoding>UTF-8</encoding>
