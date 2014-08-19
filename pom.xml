@@ -250,8 +250,7 @@
     <system>GitHub Issues</system>
   </issueManagement>
   <scm>
-    <url>https://github.com/marekpulka/subdb2</url>
-    <connection>git@github.com:marekpulka/subdb2.git</connection>
+    <url>scm:git:ssh://github.com/marekpulka/subdb2</url>
   </scm>
   <ciManagement>
     <url>https://marekpulka.ci.cloudbees.com/job/subdb2/</url>
