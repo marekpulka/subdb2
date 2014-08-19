@@ -6,6 +6,21 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>${project.artifactId}</name>
 
+  <developers>
+    <developer>
+      <id>marekpulka</id>
+      <name>Marek Pulka</name>
+      <email>marek.pulka@gmail.com</email>
+      <roles>
+        <role>Project Manager</role>
+        <role>Architect</role>
+        <role>Developer</role>
+        <role>Tester</role>
+      </roles>
+      <timezone>+1</timezone>
+    </developer>
+  </developers>
+
   <properties>
     <encoding>UTF-8</encoding>
 
@@ -181,7 +196,7 @@
           <aggregate>true</aggregate>
         </configuration>
       </plugin>
-      
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
@@ -230,4 +245,16 @@
       </build>
     </profile>
   </profiles>
+  <issueManagement>
+    <url>https://github.com/marekpulka/subdb2/issues</url>
+    <system>GitHub Issues</system>
+  </issueManagement>
+  <scm>
+    <url>https://github.com/marekpulka/subdb2</url>
+    <connection>git@github.com:marekpulka/subdb2.git</connection>
+  </scm>
+  <ciManagement>
+    <url>https://marekpulka.ci.cloudbees.com/job/subdb2/</url>
+    <system>CloudBees</system>
+  </ciManagement>
 </project>
