@@ -24,9 +24,9 @@
   <properties>
     <encoding>UTF-8</encoding>
 
-    <source.version>1.7</source.version>
-    <class.version>1.7</class.version>
-    <jdk.version>1.7</jdk.version>
+    <source.version>1.8</source.version>
+    <class.version>1.8</class.version>
+    <jdk.version>1.8</jdk.version>
 
     <junit.version>4.11</junit.version>
 
