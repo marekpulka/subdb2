@@ -23,6 +23,8 @@ TODO
 ----
 - switch cloudbees app to Java 1.8
 - TDD
+- integrate Cucumber with initial scenario, tests run with mvn test
+- Cucumber scenario report generation
 - site main page
 - other site plugins
 - investigate dbunit/sqlunit for embedded external database preparation
