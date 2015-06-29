@@ -25,6 +25,7 @@ TODO
 - TDD
 - integrate Cucumber with initial scenario, tests run with mvn test
 - Cucumber scenario report generation
+- integrate Docker
 - site main page
 - other site plugins
 - investigate dbunit/sqlunit for embedded external database preparation
