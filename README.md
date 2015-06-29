@@ -6,6 +6,8 @@ https://marekpulka.ci.cloudbees.com/job/subdb2/site/
 ci:
 https://travis-ci.org/marekpulka/subdb2 [![Build Status](https://travis-ci.org/marekpulka/subdb2.svg?branch=master)](https://travis-ci.org/marekpulka/subdb2)
 
+https://codeship.com/projects/88423
+
 https://marekpulka.ci.cloudbees.com/job/subdb2/
 
 
