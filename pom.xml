@@ -23,42 +23,72 @@
 
   <properties>
     <encoding>UTF-8</encoding>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <source.version>1.8</source.version>
     <class.version>1.8</class.version>
     <jdk.version>1.8</jdk.version>
 
-    <junit.version>4.11</junit.version>
+    <maven.version>3.0.1</maven.version>
+    
+    <junit.version>4.12</junit.version>
+    <cucumber.java8.version>1.2.2</cucumber.java8.version>
+    <cucumber.junit.version>1.2.2</cucumber.junit.version>
 
     <maven.surefire.plugin.version>2.17</maven.surefire.plugin.version>
     <maven.compiler.plugin.version>3.1</maven.compiler.plugin.version>
     <maven.checkstyle.plugin.version>2.11</maven.checkstyle.plugin.version>
     <maven.jxr.plugin.version>2.4</maven.jxr.plugin.version>
-    <maven.cobertura.plugin.version>2.6</maven.cobertura.plugin.version>
+    <maven.cobertura.plugin.version>2.7</maven.cobertura.plugin.version>
     <maven.checkstyle.plugin.version>2.12.1</maven.checkstyle.plugin.version>
     <maven.checkstyle.plugin.configLocation>checkstyle.xml</maven.checkstyle.plugin.configLocation>
     <maven.doxia.module.markdown.version>1.3</maven.doxia.module.markdown.version>
     <maven.findbugs.plugin.version>3.0.0</maven.findbugs.plugin.version>
     <maven.javadoc.plugin.version>2.9.1</maven.javadoc.plugin.version>
     <maven.jxr.plugin.version>2.4</maven.jxr.plugin.version>
-    <maven.pmd.plugin.version>3.2</maven.pmd.plugin.version>
+    <maven.pmd.plugin.version>3.4</maven.pmd.plugin.version>
     <maven.project.info.reports.plugin.version>2.6</maven.project.info.reports.plugin.version>
-    <maven.site.plugin.version>3.2</maven.site.plugin.version>
+    <maven.site.plugin.version>3.4</maven.site.plugin.version>
+    <maven.antrun.plugin.version>1.7</maven.antrun.plugin.version>
+    <maven.assembly.plugin.version>2.4.1</maven.assembly.plugin.version>
+    <maven.deploy.plugin.version>2.8.1</maven.deploy.plugin.version>
+    <maven.install.plugin.version>2.5.1</maven.install.plugin.version>
+    <maven.jar.plugin.version>2.5</maven.jar.plugin.version>
+    <maven.release.plugin.version>2.5</maven.release.plugin.version>
     <maven.sonar.plugin.version>3.3.1</maven.sonar.plugin.version>
     <maven.surefire.plugin.version>2.17</maven.surefire.plugin.version>
-    <maven.taglist.plugin.version>2.4</maven.taglist.plugin.version>
     <maven.versions.plugin.version>2.1</maven.versions.plugin.version>
     <maven.project.info.reports.plugin.version>2.7</maven.project.info.reports.plugin.version>
+    <maven.scm.publish.plugin.version>1.9.4</maven.scm.publish.plugin.version>
   </properties>
 
+ <prerequisites>
+   <maven>${maven.version}</maven>
+ </prerequisites>
+ 
   <dependencies>
+  
     <!-- Test -->
+  
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+    <!-- TODO still cucumber features are not being executed when run from mvn -->
+    <dependency>
+      <groupId>info.cukes</groupId>
+      <artifactId>cucumber-java8</artifactId>
+      <version>${cucumber.java8.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>info.cukes</groupId>
+      <artifactId>cucumber-junit</artifactId>
+      <version>${cucumber.junit.version}</version>
+      <scope>test</scope>
+    </dependency> 
   </dependencies>
 
   <build>
@@ -74,7 +104,49 @@
             <debug>true</debug>
           </configuration>
         </plugin>
+        
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>${maven.site.plugin.version}</version>
+        </plugin>         
 
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>${maven.antrun.plugin.version}</version>
+        </plugin> 
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>${maven.assembly.plugin.version}</version>
+        </plugin> 
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>${maven.deploy.plugin.version}</version>
+        </plugin> 
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>${maven.install.plugin.version}</version>
+        </plugin> 
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>${maven.jar.plugin.version}</version>
+        </plugin> 
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>${maven.release.plugin.version}</version>
+        </plugin> 
+                
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-checkstyle-plugin</artifactId>
@@ -101,7 +173,31 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${maven.surefire.plugin.version}</version>
+          <configuration>
+            <argLine>-Dfile.encoding=UTF-8</argLine>
+          </configuration>
         </plugin>
+        <!-- TODO that still doesn't work -->
+        <plugin>
+          <groupId>net.masterthought</groupId>
+          <artifactId>maven-cucumber-reporting</artifactId>
+          <version>0.0.8</version>
+          <executions>
+            <execution>
+              <id>execution</id>
+              <phase>verify</phase>
+              <goals>
+                <goal>generate</goal>
+              </goals>
+              <configuration>
+                <outputDirectory>${project.build.directory}/cucumber-html-reports</outputDirectory>
+                <cucumberOutput>${project.build.directory}/cucumber/report.json</cucumberOutput>
+                <enableFlashCharts>false</enableFlashCharts>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -121,12 +217,32 @@
             </execution>
           </executions>
         </plugin>
+<!-- work in progress
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-scm-publish-plugin</artifactId>
+            <version>${maven.scm.publish.plugin.version}</version>
+            <inherited>true</inherited>
+            <configuration>
+                <checkoutDirectory>${scmPublish.checkoutDirectory}</checkoutDirectory>
+                <checkinComment>Publishing Site Docs for ${project.artifactId}:${project.version}
+                </checkinComment>
+                <content>${scm-publish.siteDocOuputDirectory}</content>
+                <skipDeletedFiles>true</skipDeletedFiles>
+                <pubScmUrl>${scm-publish.pubScmUrl}</pubScmUrl>
+                <scmBranch>${scm-publish.scmBranch}</scmBranch>
+            </configuration>
+        </plugin> -->
       </plugins>
+      
+      
     </pluginManagement>
   </build>
 
   <reporting>
-    <plugins>
+    <plugins>     
+
+          
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-report-plugin</artifactId>
@@ -162,7 +278,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
-        <version>${maven.pmd.plugin}</version>
+        <version>${maven.pmd.plugin.version}</version>
         <configuration>
           <aggregate>true</aggregate>
           <sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
@@ -186,15 +302,15 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>versions-maven-plugin</artifactId>
         <version>${maven.versions.plugin.version}</version>
-      </plugin>
-
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>taglist-maven-plugin</artifactId>
-        <version>${maven.taglist.plugin}</version>
-        <configuration>
-          <aggregate>true</aggregate>
-        </configuration>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>dependency-updates-report</report>
+              <report>plugin-updates-report</report>
+              <report>property-updates-report</report>
+            </reports>
+          </reportSet>
+        </reportSets>
       </plugin>
 
       <plugin>
@@ -215,6 +331,7 @@
   </reporting>
 
   <profiles>
+    <!-- TODO delete? -->
     <profile>
       <id>buildhive</id>
       <build>
@@ -245,15 +362,21 @@
       </build>
     </profile>
   </profiles>
+  
   <issueManagement>
     <url>https://github.com/marekpulka/subdb2/issues</url>
     <system>GitHub Issues</system>
   </issueManagement>
+  
   <scm>
+    <!-- TODO DRY -->
+    <connection>scm:git:ssh:///github.com/github.com/marekpulka/subdb2.git</connection>
     <url>scm:git:ssh://github.com/marekpulka/subdb2</url>
+    <developerConnection>scm:git:ssh:///github.com/github.com/marekpulka/subdb2.git</developerConnection>    
   </scm>
+  
   <ciManagement>
-    <url>https://marekpulka.ci.cloudbees.com/job/subdb2/</url>
-    <system>CloudBees</system>
+    <url>https://travis-ci.org/marekpulka/subdb2</url>
+    <system>Travis</system>
   </ciManagement>
 </project>
