@@ -23,10 +23,8 @@ https://buildhive.cloudbees.com/job/marekpulka/job/subdb2/ [![Build Status](http
 
 TODO
 ----
-- switch cloudbees app to Java 1.8
-- TDD
-- integrate Cucumber with initial scenario, tests run with mvn test
-- Cucumber scenario report generation
+- move this TODO to better backlog management service
+- try to add project to www.openhub.net
 - integrate Docker
 - site main page
 - other site plugins
