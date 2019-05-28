@@ -10,6 +10,7 @@ https://codeship.com/projects/88423
 TODO
 ----
 - upgrade java
+- reintroduce coverage (Jacoco?)
 - performance regression
 - move this TODO to better backlog management service
 - try to add project to www.openhub.net
