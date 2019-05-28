@@ -1,4 +1,4 @@
-package com.origamicode.subdb2;
+package marekpulka.subdb2;
 
 public class TestCheckstyle {
 }

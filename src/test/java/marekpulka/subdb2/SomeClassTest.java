@@ -1,8 +1,10 @@
-package com.origamicode.subdb2;
+package marekpulka.subdb2;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import marekpulka.subdb2.SomeClass;
 
 public class SomeClassTest {
 

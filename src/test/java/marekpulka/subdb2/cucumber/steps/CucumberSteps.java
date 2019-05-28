@@ -1,4 +1,4 @@
-package com.origamicode.subdb2.cucumber.steps;
+package marekpulka.subdb2.cucumber.steps;
 
 import cucumber.api.java.en.Given;
 
