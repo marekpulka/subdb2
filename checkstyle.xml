@@ -106,7 +106,7 @@
     <!-- The others have left brace at eol -->
     <module name="LeftCurly">
       <property name="option" value="eol" />
-      <property name="maxLineLength" value="80" />
+      <!-- <property name="maxLineLength" value="80" />  -->
       <property name="tokens"
         value="LITERAL_CATCH, LITERAL_DO, LITERAL_ELSE, LITERAL_FINALLY, LITERAL_FOR, LITERAL_IF, LITERAL_SWITCH, LITERAL_SYNCHRONIZED, LITERAL_TRY, LITERAL_WHILE" />
     </module>
@@ -146,9 +146,11 @@
     <!-- Avoid modifying control variables -->
     <module name="ModifiedControlVariable" />
     <!-- Avoid redundant throws -->
+    <!-- TODO 
     <module name="RedundantThrows">
       <property name="allowUnchecked" value="true" />
-    </module>
+    </module> 
+    -->
     <!-- Require simple boolean expressions -->
     <module name="SimplifyBooleanExpression" />
     <!-- Require simple boolean expressions -->
@@ -167,7 +169,7 @@
     <!-- Require all classes to be in a package -->
     <module name="PackageDeclaration" />
     <!-- Ensures correct layout of JUnit test cases -->
-    <module name="JUnitTestCase" />
+    <!--  TODO <module name="JUnitTestCase" /> -->
     <!-- Enforce the following declaration order: -->
     <!-- 1. Class variables -->
     <!-- 2. Instance variables -->
