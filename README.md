@@ -1,30 +1,15 @@
 subdb2
 ======
-site:
-https://marekpulka.ci.cloudbees.com/job/subdb2/site/
 
 ci:
 https://travis-ci.org/marekpulka/subdb2 [![Build Status](https://travis-ci.org/marekpulka/subdb2.svg?branch=master)](https://travis-ci.org/marekpulka/subdb2)
 
-https://snap-ci.com/marekpulka/subdb2/branch/master
-
 https://codeship.com/projects/88423
-
-https://marekpulka.ci.cloudbees.com/job/subdb2/
-
-
-old
----
-site:
-https://buildhive.cloudbees.com/job/marekpulka/job/subdb2/site/
-
-ci:
-https://buildhive.cloudbees.com/job/marekpulka/job/subdb2/ [![Build Status](https://buildhive.cloudbees.com/job/marekpulka/job/subdb2/badge/icon)](https://buildhive.cloudbees.com/job/marekpulka/job/subdb2/)
-
 
 
 TODO
 ----
+- upgrade java
 - performance regression
 - move this TODO to better backlog management service
 - try to add project to www.openhub.net
