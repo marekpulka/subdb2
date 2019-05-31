@@ -24,13 +24,15 @@
 
 	<properties>
 		<encoding>UTF-8</encoding>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+		<!-- runtime -->
 		<java.version>12</java.version>
 
-		<maven.version>3.6.1</maven.version>
+		<!-- test -->
+		<junit.jupiter.version>5.5.0-M1</junit.jupiter.version>
 
-		<junit.jupiter.version>5.4.2</junit.jupiter.version>
+		<!-- build -->
+		<maven.version>3.6.1</maven.version>
 
 		<maven.antrun.plugin.version>1.8</maven.antrun.plugin.version>
 		<maven.assembly.plugin.version>3.1.1</maven.assembly.plugin.version>
@@ -285,7 +287,7 @@
 				<version>${maven.pmd.plugin.version}</version>
 				<configuration>
 					<aggregate>true</aggregate>
-					<sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
+					<sourceEncoding>${encoding}</sourceEncoding>
 					<minimumTokens>100</minimumTokens>
 					<linkXRef>true</linkXRef>
 					<verbose>true</verbose>
